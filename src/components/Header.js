@@ -1,15 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
-const Header = props => {
+import {selectCarData} from '../redux/car/car.selectors'
+import {createStructuredSelector} from 'reselect'
+
+
+const Header = ({car}) => {
   return (
     <>
       <figure className="image is-128x128">
-        <img src={props.car.image} alt={props.car.name} />
+        <img src={car.image} alt={car.name} />
       </figure>
-      <h2>{props.car.name}</h2>
-      <p>Amount: ${props.car.price}</p>
+      <h2>{car.name}</h2>
+      <p>Amount: ${car.price}</p>
     </>
   );
 };
+const mapStateToProps = createStructuredSelector({
+  car: selectCarData
+})
 
-export default Header;
+
+export default connect(mapStateToProps)(Header);
