@@ -7,8 +7,8 @@ import { selectFeatureData } from '../redux/features/features.selector';
 import {selectCarData} from '../redux/car/car.selectors'
 
 const AdditionalFeatures = ({additionalFeatures, car}) => {
-  console.log(additionalFeatures)
-  console.log(car)
+  console.log('heyfeat',additionalFeatures)
+  console.log('hey carhey',car)
   return (
     <div className="content">
       <h4>Additional Features</h4>

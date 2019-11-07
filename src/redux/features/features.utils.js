@@ -1,18 +1,15 @@
 export const addFeatureItem = (features, featureToAdd) => {
-	console.log(features)
+	console.log(features);
 	const existingFeatures = features.find(
-	  feature => feature.id === featureToAdd.id
+		feature => feature.id === featureToAdd.id
 	);
 	if (existingFeatures) {
-        console.log('hey from utils')
-	  return features.map(feature =>
-		feature.id === featureToAdd.id
-		  ? { ...feature}
-		  : feature
-	  );
+		console.log("hey from utils");
+		return features.map(feature =>
+			feature.id === featureToAdd.id ? { ...feature } : feature
+		);
 	}
-  	console.log(existingFeatures)
+	console.log(existingFeatures);
 
-	return [...features, { ...featureToAdd}];
-  };
-  
+	return [...features, { ...featureToAdd }];
+};

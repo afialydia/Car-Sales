@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 
 const AdditionalFeature = props => {
-  console.log(props)
+  // console.log(props.feature)
   return (
     <li>
       <button  onClick={()=> props.addFeature(props.feature)}

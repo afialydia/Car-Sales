@@ -1,3 +1,4 @@
+import { FeatureActionTypes } from "./features.types";
 
 const INITIAL_STATE = {
 	additionalFeatures: [
@@ -10,6 +11,15 @@ const INITIAL_STATE = {
 
 const featureReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case FeatureActionTypes.ADD_FEATURE:
+			console.log(action.payload, "i'malsoworking-add");
+			return {
+				...state,
+				additionalFeatures: state.additionalFeatures.filter(
+					feature => feature.id !== action.payload.id
+				)
+			};
+
 		default:
 			return state;
 	}

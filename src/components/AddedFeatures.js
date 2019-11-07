@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { selectCarData } from "../redux/car/car.selectors";
 import { createStructuredSelector } from "reselect";
 import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = ({car}) => {
-	console.log(car.features);
+	console.log('hey from added',car.features);
 	return (
 		<div className="content">
 			<h6>Added features:</h6>
@@ -24,7 +23,7 @@ const AddedFeatures = ({car}) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-	car: selectCarData
+	car: selectCarData,
 });
 
 export default connect(mapStateToProps)(AddedFeatures);
