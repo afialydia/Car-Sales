@@ -5,13 +5,13 @@ import { removeFeature } from '../redux/features/feature.actions'
 
 
 const AddedFeature = (props) => {
-  
+  console.log(props.feature.name)
   return (
     
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button className="button" >&#10005;</button>
-      {props.name} howdy
+      <button className="button" onClick={()=> props.removeFeature(props.feature)}>&#10005;</button>
+      {props.feature.name} howdy
     </li>
   );
 };

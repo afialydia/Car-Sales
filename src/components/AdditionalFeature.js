@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 
 
 const AdditionalFeature = props => {
+  console.log(props)
   return (
     <li>
-      <button  onClick={()=> addFeature(props)}
+      <button  onClick={()=> props.addFeature(props.feature)}
          className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>

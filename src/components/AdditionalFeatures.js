@@ -6,14 +6,16 @@ import {createStructuredSelector} from 'reselect'
 import { selectFeatureData } from '../redux/features/features.selector';
 import {selectCarData} from '../redux/car/car.selectors'
 
-const AdditionalFeatures = ({additionalFeatures}) => {
+const AdditionalFeatures = ({additionalFeatures, car}) => {
+  console.log(additionalFeatures)
+  console.log(car)
   return (
     <div className="content">
       <h4>Additional Features</h4>
       {additionalFeatures.length ? (
         <ol type="1">
-          {additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+          {additionalFeatures.map(feature => (
+            <AdditionalFeature key={feature.id} feature={feature} />
           ))}
         </ol>
       ) : (

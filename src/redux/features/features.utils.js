@@ -1,8 +1,8 @@
 export const addFeatureItem = (features, featureToAdd) => {
+	console.log(features)
 	const existingFeatures = features.find(
 	  feature => feature.id === featureToAdd.id
 	);
-  console.log("hey i'm working- add feature")
 	if (existingFeatures) {
         console.log('hey from utils')
 	  return features.map(feature =>
@@ -11,7 +11,8 @@ export const addFeatureItem = (features, featureToAdd) => {
 		  : feature
 	  );
 	}
-  
+  	console.log(existingFeatures)
+
 	return [...features, { ...featureToAdd}];
   };
   
