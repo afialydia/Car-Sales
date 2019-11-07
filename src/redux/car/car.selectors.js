@@ -6,3 +6,8 @@ export const selectCarData = createSelector(
 	[selectCar],
 	car => car.car
 );
+
+export const selectCarFeat = createSelector(
+	[selectCar],
+	car => car.features
+);

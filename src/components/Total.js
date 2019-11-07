@@ -6,6 +6,7 @@ import { selectPriceData, selectCarData} from '../redux/selectors';
 
 
 const Total = ({car, additionalPrice}) => {
+  console.log(additionalPrice)
   return (
     <div className="content">
       <h4>Total Amount: ${car.price + additionalPrice}</h4>

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 		name: "2019 Ford Mustang",
 		image:
 			"https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
-		features: [ 		{ id: 4, name: "Rear spoiler", price: 250 }
+		features: [ 		
 	]
 	}
 };
@@ -18,16 +18,19 @@ const carReducer = (state = INITIAL_STATE, action) => {
 			console.log(action.payload, "i'malsoworking-addcar");
 			return {
 				...state,
-				features: [...state.car.features, action.payload], ...state
-			};
+				car: {
+					...state.car,
+				features: [...state.car.features, action.payload]
+			}};
 
 		case FeatureActionTypes.REMOVE_FEATURE:
 			console.log("imworking-car");
 			return {
 				...state,
+				car:{...state.car,
 				features: state.car.features.filter(
 					feature => feature.id !== action.payload.id
-				)
+				)}
 			};
 		default:
 			return state;

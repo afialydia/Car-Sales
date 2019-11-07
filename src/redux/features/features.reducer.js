@@ -20,6 +20,13 @@ const featureReducer = (state = INITIAL_STATE, action) => {
 				)
 			};
 
+		case FeatureActionTypes.REMOVE_FEATURE:
+			console.log("imworking-car");
+			return {
+				...state, 
+				additionalFeatures: [...state.additionalFeatures, action.payload]
+			};
+
 		default:
 			return state;
 	}
