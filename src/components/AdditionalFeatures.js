@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 import {createStructuredSelector} from 'reselect'
 import { selectFeatureData } from '../redux/features/features.selector';
+import {selectCarData} from '../redux/car/car.selectors'
 
 const AdditionalFeatures = ({additionalFeatures}) => {
   return (
@@ -24,7 +25,8 @@ const AdditionalFeatures = ({additionalFeatures}) => {
 
 
 const mapStateToProps = createStructuredSelector({
-  additionalFeatures: selectFeatureData
+  additionalFeatures: selectFeatureData,
+  car: selectCarData
 })
 
 
