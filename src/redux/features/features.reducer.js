@@ -1,0 +1,35 @@
+import { FeatureActionTypes } from "./features.types";
+
+const INITIAL_STATE = {
+	additionalFeatures: [
+		{ id: 1, name: "V-6 engine", price: 1500 },
+		{ id: 2, name: "Racing detail package", price: 1500 },
+		{ id: 3, name: "Premium sound system", price: 500 },
+		{ id: 4, name: "Rear spoiler", price: 250 }
+	]
+};
+
+const featureReducer = (state = INITIAL_STATE, action) => {
+	switch (action.type) {
+		case FeatureActionTypes.ADD_FEATURE:
+			console.log(action.payload, "i'malsoworking-add");
+			return {
+				...state,
+				additionalFeatures: state.additionalFeatures.filter(
+					feature => feature.id !== action.payload.id
+				)
+			};
+
+		case FeatureActionTypes.REMOVE_FEATURE:
+			console.log("imworking-car");
+			return {
+				...state, 
+				additionalFeatures: [...state.additionalFeatures, action.payload]
+			};
+
+		default:
+			return state;
+	}
+};
+
+export default featureReducer;

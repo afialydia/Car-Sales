@@ -1,11 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
-const Total = props => {
+import {createStructuredSelector} from 'reselect'
+import { selectPriceData, selectCarData} from '../redux/selectors';
+
+
+const Total = ({car, additionalPrice}) => {
+  console.log(additionalPrice)
   return (
     <div className="content">
-      <h4>Total Amount: ${props.car.price + props.additionalPrice}</h4>
+      <h4>Total Amount: ${car.price + additionalPrice}</h4>
     </div>
   );
 };
+const mapStateToProps = createStructuredSelector({
+  car: selectCarData,
+  additionalPrice: selectPriceData
+})
 
-export default Total;
+
+export default connect(mapStateToProps)(Total);

@@ -1,14 +1,21 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import {connect} from 'react-redux'
 
-const AdditionalFeatures = props => {
+import {createStructuredSelector} from 'reselect'
+import { selectFeatureData } from '../redux/features/features.selector';
+import {selectCarData} from '../redux/car/car.selectors'
+
+const AdditionalFeatures = ({additionalFeatures, car}) => {
+  console.log('heyfeat',additionalFeatures)
+  console.log('hey carhey',car)
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.additionalFeatures.length ? (
+      {additionalFeatures.length ? (
         <ol type="1">
-          {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+          {additionalFeatures.map(feature => (
+            <AdditionalFeature key={feature.id} feature={feature} />
           ))}
         </ol>
       ) : (
@@ -18,4 +25,11 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+
+const mapStateToProps = createStructuredSelector({
+  additionalFeatures: selectFeatureData,
+  car: selectCarData
+})
+
+
+export default connect(mapStateToProps)(AdditionalFeatures);
